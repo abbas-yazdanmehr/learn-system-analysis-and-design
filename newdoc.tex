@@ -1,0 +1,202 @@
+%%% you can find and change template keywords by 
+%%% searching "yyy" all of this template keywords 
+%%% starts by "yyy".
+
+\documentclass[a4paper, 12pt]{article}
+
+
+%%% packages %%%
+\usepackage[T1]{fontenc}
+\usepackage{tgbonum}
+\usepackage{tabto}
+\usepackage[top=2cm, bottom=2cm, right=2cm, left=2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{proof}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+
+
+%%% defines %%%
+\def\pfbox % new experimental version (DEK, November 88)
+{{\ooalign{\hfil\lower.06ex % a smiley face
+\hbox{$\scriptscriptstyle\frown$}\hfil\crcr
+ \hfil\lower.7ex\hbox{\"{}}\hfil\crcr
+ \mathhexbox20D}}}
+
+%%% newcounter %%%
+\newcounter{stepcounter}
+ 
+%%% newenvironment %%%
+
+
+%%% new theoremm %%%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Note}[section]
+
+%%% definecolors %%%
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{blue1}{rgb}{0, 0, 0.55}
+\definecolor{green1}{rgb}{0, 0.4, 0}
+\definecolor{red1}{rgb}{0.55, 0, 0}
+\definecolor{purple1}{rgb}{0.3, 0, 0.5}
+
+%%% newcommand %%%
+\newcommand{\noticon}{\includegraphics[width=15pt]{constants/note.png}}
+\newcommand{\deficon}{\includegraphics[width=20pt]{constants/def.png}}
+\newcommand{\piticon}{\includegraphics[width=25pt]{constants/pitfall.png}}
+\newcommand{\stepicon}{\includegraphics[width=25pt]{constants/step.png}}
+\newcommand{\cmdicon}{\includegraphics[width=20pt]{constants/terminal.png}}
+
+\newcommand{\mynote}[1]{\vspace{10pt} 
+\noindent
+  \hspace{0.5em}\raisebox{-0.2em} \noticon \quad \textbf{\textcolor{blue1}{#1}} 
+}
+
+\newcommand{\mydef}[1]{\vspace{10pt} 
+\noindent
+  \hspace{0.5em}\raisebox{-0.3em} \deficon \quad \textit{\textbf{\textcolor{blue1}{#1}}} \quad
+}
+
+\newcommand{\mypit}[1]{\vspace{10pt} 
+\noindent
+  \hspace{0.5em}\raisebox{-0.4em} \piticon \quad \textbf{\textcolor{red1}{#1!}} 
+\\[5pt]}
+
+\newcommand{\mystepbystep}[1]{\setcounter{stepcounter}{1}
+\vspace{10pt} 
+\noindent
+  \hspace{0.5em}\raisebox{-0.5em} \stepicon \quad {\large \textbf{\textcolor{blue1}{#1}}}
+  \\[5pt]
+}
+
+\newcommand{\mystep}[1]{
+    \noindent
+    \begin{tabular}{p{0.1\textwidth} p{0.85\textwidth}}
+      {\Large \thestepcounter}& #1
+    \end{tabular} 
+    \addtocounter{stepcounter}{1} \\[0.5cm]
+}
+
+\newcommand{\mycommand}[1]{
+\vspace{10pt} 
+\noindent
+  \hspace{0.5em}\raisebox{-0.5em} \cmdicon \quad {\textbf{\textcolor{blue1}{#1}}}
+}
+
+\newcommand{\mycodeinput}[1]{\noindent \lstinputlisting[firstline=0, lastline=100, caption=#1, captionpos=b]{#1}}
+
+%%% package settings %%%
+\lstset{
+  backgroundcolor=\color{backcolour},
+  frame=tblr,
+  % language=none,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+
+%%% begin document %%%
+\begin{document}
+
+\title{Learn System Analysis And Design}
+\author{Abbas Yazdanmehr \\ \texttt{abbas.yazdanmehr1@gmail.com}}
+\date{last update: \today}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Usecase Modeling (FAST development framework)}
+One of the most important things in system development is finding \textcolor{red1}{Requierments}.
+
+\begin{itemize}
+  \item These Requierments should be categorized in good categories like 
+\textit{Essential Requierments} and \textit{True Requierments}.
+  \item These Requierments should be very clear and understandable.
+  \item Then these Requierments are validable and measureable.
+\end{itemize}
+
+\mynote{Drawback of using just other Models like process, data and object Models}
+\begin{itemize}
+  \item Too Technical for not Technical people.
+  \item Usecase Model is a base for Modeling process, data and object.
+\end{itemize}
+
+By the Usecase Model you can see all Requierments in a Tree sequence dependency.
+
+\mynote{Usecase Model idea}
+Usecase Model come from Object Oriented in Technical subjects originally.
+
+\mynote{Feasible system development}
+Every system development process in first step should be understandable, and then
+it should optimize. Other system development way that don't follow these rules works
+by something like pattern recognition and artificial intelligence.
+
+\mydef{Usecase}
+A sequence of steps of one narrative in system for doing \textcolor{red1}{one duty}.
+
+\mydef{Usecase Diagram}
+A Graphic Diagram for interaction between system with users and other systems.
+
+\mydef{Usecase Narrative}
+Complement(Complete Description) of Usecase Diagram.
+\newpage
+
+\mystepbystep{Drawing Usecase Diagram}
+
+\mystep{Diagram parts Meaning:
+\begin{itemize}
+  \item Usecase: oval
+  \item Actor: stickman
+  \item System/Subsystem: rectangle
+  \item Connection: lines/vectors
+  \item Extended Connection: dashed line with <<extends>>
+  \item Extend Conditions: paper
+  \item Include/Uses Connection: dashed line with <<include>>
+  \item Depends on Connection: line with <<depends on>>
+  \item Inheritance Connection: vector from Actor to Actor
+\end{itemize}
+}
+Extension Usecase is optional or conditional. It have base Usecase. \\
+Include Connection have abstract Usecase that can reuse many times. \\
+Depends on Connection determine sequence of Usecase. \\
+Inheritance Connection have abstract Actor. \\
+
+\mystep{Determine Diagram parts:
+\begin{enumerate}
+  \item Identify Actors.(User-Centered Design)
+  \item Identify Usecases.
+  \item Draw Usecase Diagram.
+  \item Write Usecase Narrative.
+\end{enumerate}
+}
+
+
+
+\end{document}
